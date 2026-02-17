@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
   MapPin, Clock, Phone, Mail, Menu, X, Star, Quote,
   Calendar, Users, HeartPulse, Shield, Award, CheckCircle,
@@ -119,6 +120,7 @@ function App() {
                   <li><a href="#equipo">Equipo</a></li>
                   <li><a href="#testimonios">Testimonios</a></li>
                   <li><a href="#contacto">Contacto</a></li>
+                  <li><Link to="/condiciones-implantes">Garantía Prótesis</Link></li>
                 </ul>
               </nav>
               <div className="header-cta">
@@ -148,6 +150,7 @@ function App() {
           <li><a href="#equipo" onClick={() => setMobileMenuOpen(false)}>Equipo</a></li>
           <li><a href="#testimonios" onClick={() => setMobileMenuOpen(false)}>Testimonios</a></li>
           <li><a href="#contacto" onClick={() => setMobileMenuOpen(false)}>Contacto</a></li>
+          <li><Link to="/condiciones-implantes" onClick={() => setMobileMenuOpen(false)}>Garantía Prótesis</Link></li>
         </ul>
         <a href="https://clientes.gestiondeclinica.es/30/AreaPrivada/getapp.html?cif=b67156695&idc=b87e152a-bbaa-45d5-91e4-8658c926d2fc" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }}>
           Pedir Cita
@@ -749,7 +752,8 @@ function App() {
               <ul className="footer-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#filosofia">Filosofía</a></li>
-                                <li><a href="#servicios">Especialidades</a></li>
+                <li><a href="#servicios">Especialidades</a></li>
+                <li><Link to="/condiciones-implantes">Garantía Prótesis</Link></li>
                 <li><a href="https://bernaldentalclinic.com/blog/" target="_blank" rel="noopener noreferrer">Blog</a></li>
               </ul>
             </div>

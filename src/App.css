@@ -1345,6 +1345,252 @@
   }
 }
 
+.warranty,
+.warranty-page {
+  background: var(--color-white);
+}
+
+.warranty-page {
+  padding-top: 140px;
+}
+
+.warranty-back {
+  margin-bottom: 2rem;
+}
+
+.warranty-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: var(--transition);
+}
+
+.warranty-back-link:hover {
+  color: var(--color-primary);
+  gap: 0.75rem;
+}
+
+.warranty-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3.5rem;
+}
+
+.warranty-header-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: var(--color-white);
+}
+
+.warranty-header .section-subtitle::before {
+  display: none;
+}
+
+.warranty-header p {
+  color: var(--color-gray-dark);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+
+.warranty-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.warranty-video-container {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  background: var(--color-black);
+  aspect-ratio: 9 / 16;
+  max-height: 520px;
+}
+
+.warranty-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.warranty-video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 77, 103, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.warranty-video-play.playing {
+  background: transparent;
+  opacity: 0;
+}
+
+.warranty-video-play.playing:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.warranty-video-play svg {
+  width: 56px;
+  height: 56px;
+  color: var(--color-white);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.warranty-intro {
+  color: var(--color-gray-dark);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.warranty-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.warranty-req-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.warranty-req-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: var(--color-bg-section);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.warranty-req-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.warranty-req-item p {
+  color: var(--color-gray-dark);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.warranty-notice {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: #fef3c7;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid #f59e0b;
+}
+
+.warranty-notice svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.warranty-notice p {
+  color: #92400e;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.warranty-exclusions {
+  background: var(--color-bg-section);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+}
+
+.warranty-exclusions h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.warranty-exclusions h3 svg {
+  color: var(--color-primary);
+}
+
+.warranty-exclusions-intro {
+  color: var(--color-gray-dark);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.warranty-exclusions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.warranty-exclusion-card {
+  background: var(--color-white);
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.warranty-exclusion-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+}
+
+.warranty-exclusion-number {
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.warranty-exclusion-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.warranty-exclusion-card p {
+  color: var(--color-gray-dark);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
 .cookie-banner {
   position: fixed;
   bottom: 0;
@@ -1611,6 +1857,19 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .warranty-content {
+    grid-template-columns: 1fr;
+  }
+
+  .warranty-video-wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .warranty-exclusions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .doctor-profile {
     grid-template-columns: 1fr !important;
     text-align: center;
@@ -1819,6 +2078,26 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+  }
+
+  .warranty-video-wrapper {
+    max-width: 280px;
+  }
+
+  .warranty-video-container {
+    max-height: 420px;
+  }
+
+  .warranty-exclusions {
+    padding: 1.75rem;
+  }
+
+  .warranty-exclusions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .warranty-exclusions h3 {
+    font-size: 1.25rem;
   }
 
   .cookie-policy-overlay {
