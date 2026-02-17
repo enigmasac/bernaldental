@@ -1351,7 +1351,7 @@
 }
 
 .warranty-page {
-  padding-top: 140px;
+  padding-top: 180px;
 }
 
 .warranty-back {
@@ -1408,6 +1408,12 @@
   gap: 3.5rem;
   align-items: start;
   margin-bottom: 4rem;
+}
+
+.warranty-content-compact {
+  max-width: 960px;
+  margin: 0 auto 4rem;
+  gap: 2rem;
 }
 
 .warranty-video-container {

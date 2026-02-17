@@ -5,7 +5,7 @@ import {
   MapPin, Clock, Phone, Mail, X, Menu,
   ShieldCheck, Shield, FileCheck, ClipboardList, Sparkle,
   AlertTriangle, Play, Pause, ArrowRight,
-  Facebook, Instagram, ArrowLeft, Cookie
+  Facebook, Instagram, Cookie
 } from 'lucide-react'
 
 const fadeInUp = {
@@ -86,7 +86,12 @@ function WarrantyPage() {
               </Link>
               <nav>
                 <ul className="nav-menu">
-                  <li><Link to="/">Inicio</Link></li>
+                  <li><a href="/#inicio">Inicio</a></li>
+                  <li><a href="/#servicios">Especialidades</a></li>
+                  <li><a href="/#filosofia">Filosofía</a></li>
+                  <li><a href="/#equipo">Equipo</a></li>
+                  <li><a href="/#testimonios">Testimonios</a></li>
+                  <li><a href="/#contacto">Contacto</a></li>
                   <li><Link to="/condiciones-implantes">Garantía Prótesis</Link></li>
                 </ul>
               </nav>
@@ -111,7 +116,12 @@ function WarrantyPage() {
           </button>
         </div>
         <ul className="mobile-nav">
-          <li><Link to="/" onClick={() => setMobileMenuOpen(false)}>Inicio</Link></li>
+          <li><a href="/#inicio" onClick={() => setMobileMenuOpen(false)}>Inicio</a></li>
+          <li><a href="/#servicios" onClick={() => setMobileMenuOpen(false)}>Especialidades</a></li>
+          <li><a href="/#filosofia" onClick={() => setMobileMenuOpen(false)}>Filosofía</a></li>
+          <li><a href="/#equipo" onClick={() => setMobileMenuOpen(false)}>Equipo</a></li>
+          <li><a href="/#testimonios" onClick={() => setMobileMenuOpen(false)}>Testimonios</a></li>
+          <li><a href="/#contacto" onClick={() => setMobileMenuOpen(false)}>Contacto</a></li>
           <li><Link to="/condiciones-implantes" onClick={() => setMobileMenuOpen(false)}>Garantía Prótesis</Link></li>
         </ul>
         <a href="https://clientes.gestiondeclinica.es/30/AreaPrivada/getapp.html?cif=b67156695&idc=b87e152a-bbaa-45d5-91e4-8658c926d2fc" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }}>
@@ -121,18 +131,6 @@ function WarrantyPage() {
 
       <section className="warranty-page section-padding">
         <div className="container">
-          <motion.div
-            className="warranty-back"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Link to="/" className="warranty-back-link">
-              <ArrowLeft size={18} />
-              Volver al inicio
-            </Link>
-          </motion.div>
-
           <motion.div
             className="warranty-header"
             initial={{ opacity: 0, y: 30 }}
@@ -151,7 +149,7 @@ function WarrantyPage() {
             </p>
           </motion.div>
 
-          <div className="warranty-content">
+          <div className="warranty-content warranty-content-compact">
             <motion.div
               className="warranty-video-wrapper"
               initial={{ opacity: 0, x: -40 }}
