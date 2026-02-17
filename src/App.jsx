@@ -5,7 +5,7 @@ import {
   Calendar, Users, HeartPulse, Shield, Award, CheckCircle,
   ArrowRight, Facebook, Instagram, Youtube,
   Stethoscope, Smile, Baby, Sparkles, CircleDot, Target,
-  Eye, Heart, Lightbulb, Handshake, ShieldCheck
+  Eye, Heart, Lightbulb, Handshake, ShieldCheck, Cookie
 } from 'lucide-react'
 import './App.css'
 
@@ -25,6 +25,18 @@ const staggerContainer = {
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [cookieConsent, setCookieConsent] = useState(() => localStorage.getItem('cookie-consent'))
+  const [cookiePolicyOpen, setCookiePolicyOpen] = useState(false)
+
+  const acceptCookies = () => {
+    localStorage.setItem('cookie-consent', 'accepted')
+    setCookieConsent('accepted')
+  }
+
+  const rejectCookies = () => {
+    localStorage.setItem('cookie-consent', 'rejected')
+    setCookieConsent('rejected')
+  }
 
   const services = [
     { icon: Stethoscope, title: 'Odontología General', description: 'Cuidado integral de tu salud bucal con tratamientos preventivos y conservadores para mantener tu sonrisa sana.' },
@@ -692,6 +704,29 @@ function App() {
         <span className="whatsapp-tooltip">WhatsApp</span>
       </motion.a>
 
+      {!cookieConsent && (
+        <motion.div
+          className="cookie-banner"
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5, type: 'spring', stiffness: 200, damping: 25 }}
+        >
+          <div className="cookie-banner-content">
+            <div className="cookie-banner-icon">
+              <Cookie size={24} />
+            </div>
+            <p className="cookie-banner-text">
+              Utilizamos cookies propias para mejorar tu experiencia en nuestro sitio web.
+              Puedes aceptar o rechazar su uso. <a href="#" onClick={(e) => { e.preventDefault(); setCookiePolicyOpen(true) }}>Política de Cookies</a>
+            </p>
+            <div className="cookie-banner-actions">
+              <button className="cookie-btn cookie-btn-accept" onClick={acceptCookies}>Aceptar</button>
+              <button className="cookie-btn cookie-btn-reject" onClick={rejectCookies}>Rechazar</button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
       <footer className="footer">
         <div className="container">
           <div className="footer-grid">
@@ -753,12 +788,122 @@ function App() {
             <div className="footer-legal">
               <a href="#">Aviso Legal</a>
               <a href="#">Política de Privacidad</a>
-              <a href="#">Política de Cookies</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setCookiePolicyOpen(true) }}>Política de Cookies</a>
             </div>
             <p className="footer-credits">Desarrollado por <a href="https://enigmasac.com" target="_blank" rel="noopener noreferrer">Enigma Developers</a></p>
           </div>
         </div>
       </footer>
+
+      {cookiePolicyOpen && (
+        <div className="cookie-policy-overlay" onClick={() => setCookiePolicyOpen(false)}>
+          <motion.div
+            className="cookie-policy-modal"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="cookie-policy-header">
+              <h2>Política de Cookies</h2>
+              <button className="cookie-policy-close" onClick={() => setCookiePolicyOpen(false)}>
+                <X size={24} />
+              </button>
+            </div>
+            <div className="cookie-policy-body">
+              <p className="cookie-policy-updated">Última actualización: febrero 2026</p>
+
+              <h3>1. ¿Qué son las cookies?</h3>
+              <p>
+                Las cookies son pequeños archivos de texto que los sitios web almacenan en el dispositivo
+                del usuario (ordenador, tablet o móvil) cuando los visita. Sirven para que el sitio web
+                recuerde información sobre la visita, como preferencias de idioma u otros ajustes, lo que
+                puede facilitar la siguiente visita y hacer el sitio más útil.
+              </p>
+
+              <h3>2. Responsable del tratamiento</h3>
+              <p>
+                <strong>Titular:</strong> Bernal Dental Clinic, S.L.<br />
+                <strong>CIF:</strong> B67156695<br />
+                <strong>Domicilio:</strong> Passatge de Montserrat de Andrés 11, Local 2, 08014 Barcelona<br />
+                <strong>Email:</strong> info@bernaldentalclinic.com<br />
+                <strong>Teléfono:</strong> 625 766 371
+              </p>
+
+              <h3>3. Tipos de cookies que utilizamos</h3>
+              <p>
+                Este sitio web utiliza únicamente <strong>cookies técnicas y funcionales</strong> estrictamente
+                necesarias para el correcto funcionamiento de la página. No utilizamos cookies de análisis,
+                publicitarias ni de rastreo de terceros.
+              </p>
+
+              <table className="cookie-policy-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Finalidad</th>
+                    <th>Duración</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>cookie-consent</td>
+                    <td>Técnica (localStorage)</td>
+                    <td>Almacena la preferencia del usuario sobre el uso de cookies para no volver a mostrar el aviso</td>
+                    <td>Persistente (hasta que el usuario borre los datos del navegador)</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>4. Base legal</h3>
+              <p>
+                Las cookies técnicas están exentas del requisito de consentimiento según el artículo 22.2
+                de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de
+                Comercio Electrónico (LSSI-CE), ya que son estrictamente necesarias para la prestación
+                del servicio solicitado por el usuario.
+              </p>
+
+              <h3>5. ¿Cómo gestionar las cookies?</h3>
+              <p>
+                Puedes aceptar o rechazar las cookies a través del banner informativo que aparece al
+                acceder al sitio web. Además, puedes configurar tu navegador para bloquear o eliminar
+                las cookies instaladas en tu equipo:
+              </p>
+              <ul>
+                <li><strong>Google Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</li>
+                <li><strong>Mozilla Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio</li>
+                <li><strong>Safari:</strong> Preferencias → Privacidad → Gestión de datos de sitios web</li>
+                <li><strong>Microsoft Edge:</strong> Configuración → Privacidad → Cookies</li>
+              </ul>
+              <p>
+                Ten en cuenta que la desactivación de cookies puede afectar al funcionamiento de algunas
+                características del sitio web.
+              </p>
+
+              <h3>6. Derechos del usuario</h3>
+              <p>
+                De conformidad con el Reglamento General de Protección de Datos (UE) 2016/679 y la
+                Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía
+                de los derechos digitales (LOPDGDD), puedes ejercer tus derechos de acceso,
+                rectificación, supresión, limitación, portabilidad y oposición enviando un correo a{' '}
+                <a href="mailto:info@bernaldentalclinic.com">info@bernaldentalclinic.com</a>.
+              </p>
+              <p>
+                Asimismo, tienes derecho a presentar una reclamación ante la Agencia Española de
+                Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>).
+              </p>
+
+              <h3>7. Actualizaciones</h3>
+              <p>
+                Esta política de cookies puede actualizarse periódicamente para adaptarse a cambios
+                normativos o a nuevas funcionalidades del sitio web. Te recomendamos revisarla de
+                forma periódica.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </>
   )
 }
