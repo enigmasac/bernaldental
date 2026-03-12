@@ -6,7 +6,8 @@ import {
   Calendar, Users, HeartPulse, Shield, Award, CheckCircle,
   ArrowRight, Facebook, Instagram, Youtube,
   Stethoscope, Smile, Baby, Sparkles, CircleDot, Target,
-  Eye, Heart, Lightbulb, Handshake, ShieldCheck, Cookie
+  Eye, Heart, Lightbulb, Handshake, ShieldCheck, Cookie,
+  CircleParking, ExternalLink
 } from 'lucide-react'
 import './App.css'
 
@@ -28,6 +29,9 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [cookieConsent, setCookieConsent] = useState(() => localStorage.getItem('cookie-consent'))
   const [cookiePolicyOpen, setCookiePolicyOpen] = useState(false)
+  const [legalOpen, setLegalOpen] = useState(false)
+  const [privacyOpen, setPrivacyOpen] = useState(false)
+  const [fabOpen, setFabOpen] = useState(false)
 
   const acceptCookies = () => {
     localStorage.setItem('cookie-consent', 'accepted')
@@ -81,28 +85,20 @@ function App() {
           <div className="container">
             <div className="header-top-content">
               <div className="header-top-left">
-                <div className="header-top-item">
+                <a href="https://www.google.com/maps/search/Passatge+de+Montserrat+de+Andrés+11+08014+Barcelona" target="_blank" rel="noopener noreferrer" className="header-top-item">
                   <MapPin size={16} />
                   <span>Passatge de Montserrat de Andrés 11, 08014 Barcelona</span>
-                </div>
+                </a>
                 <div className="header-top-item">
                   <Clock size={16} />
                   <span>Lun-Jue: 10:00-14:00 / 15:00-20:00 | Vie: 10:00-14:00</span>
                 </div>
               </div>
-              <div className="header-top-right">
-                <div className="header-top-item">
-                  <Phone size={16} />
-                  <a href="tel:+34625766371">625 766 371</a>
-                </div>
-                <div className="social-links">
-                  <a href="https://www.facebook.com/bernaldentalclinic/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={16} /></a>
-                  <a href="https://www.instagram.com/bernal_dental_clinic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={16} /></a>
-                  <a href="https://www.google.com/search?q=bernaldentalclinic" target="_blank" rel="noopener noreferrer" aria-label="Google" className="google-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                  </a>
-                </div>
-              </div>
+              <a href="https://maps.app.goo.gl/Xjm7hGHv2KUzmRC39" target="_blank" rel="noopener noreferrer" className="parking-badge">
+                <CircleParking size={16} />
+                <span>Parking gratuito para pacientes · Ver ubicación</span>
+                <ExternalLink size={12} />
+              </a>
             </div>
           </div>
         </div>
@@ -196,7 +192,7 @@ function App() {
                   <div className="stat-label">Pacientes felices</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">4.8</div>
+                  <div className="stat-number">4.9</div>
                   <div className="stat-label">Valoración Google</div>
                 </div>
               </div>
@@ -252,7 +248,7 @@ function App() {
             {[
               { icon: Calendar, title: 'Pedir Cita', desc: 'Reserva tu visita gratuita' },
               { icon: Users, title: 'Equipo Experto', desc: 'Profesionales cualificados' },
-              { icon: Phone, title: 'Urgencias', desc: '625 766 371' },
+              { icon: Phone, title: 'Urgencias', desc: '697 935 323' },
               { icon: HeartPulse, title: 'Atención Cercana', desc: 'Trato personalizado' },
             ].map((item, index) => (
               <motion.div key={index} className="quick-service-card" variants={fadeInUp}>
@@ -606,7 +602,7 @@ function App() {
                   </div>
                   <div className="appointment-info-item">
                     <Phone size={20} />
-                    <span>625 766 371</span>
+                    <span>697 935 323</span>
                   </div>
                   <div className="appointment-info-item">
                     <Mail size={20} />
@@ -681,31 +677,58 @@ function App() {
               <a href="https://clientes.gestiondeclinica.es/30/AreaPrivada/getapp.html?cif=b67156695&idc=b87e152a-bbaa-45d5-91e4-8658c926d2fc" target="_blank" rel="noopener noreferrer" className="btn btn-green">
                 Pedir Cita Ahora <ArrowRight size={18} />
               </a>
-              <a href="tel:+34625766371" className="btn btn-secondary">
-                <Phone size={18} /> Llamar: 625 766 371
+              <a href="tel:+34697935323" className="btn btn-secondary">
+                <Phone size={18} /> Llamar: 697 935 323
               </a>
             </div>
+            <a href="https://maps.app.goo.gl/Xjm7hGHv2KUzmRC39" target="_blank" rel="noopener noreferrer" className="cta-parking">
+              <CircleParking size={18} />
+              <span>Parking gratuito para pacientes · Ver ubicación</span>
+              <ExternalLink size={14} />
+            </a>
           </motion.div>
         </div>
       </section>
 
-      <motion.a
-        href="https://wa.me/34625766371"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-fab"
-        aria-label="Contactar por WhatsApp"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, type: 'spring', stiffness: 260, damping: 18 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.914 15.914 0 0 0 16.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.312 22.594c-.39 1.1-1.932 2.014-3.18 2.28-.852.18-1.964.324-5.71-1.228-4.796-1.986-7.882-6.848-8.12-7.166-.23-.318-1.926-2.566-1.926-4.892s1.218-3.47 1.652-3.944c.434-.474.946-.592 1.262-.592.316 0 .632.002.908.016.292.016.682-.11 1.068.814.39.938 1.33 3.264 1.448 3.502.118.238.196.514.04.832-.158.318-.236.514-.474.792-.238.278-.5.622-.714.834-.238.238-.486.496-.21.974.278.474 1.234 2.036 2.65 3.298 1.82 1.622 3.354 2.124 3.828 2.362.474.238.752.198 1.028-.118.278-.318 1.186-1.382 1.504-1.856.316-.474.632-.394 1.068-.236.434.158 2.76 1.302 3.234 1.538.474.238.79.356.908.554.118.198.118 1.148-.272 2.252z"/>
-        </svg>
-        <span className="whatsapp-tooltip">WhatsApp</span>
-      </motion.a>
+      <div className="fab-container">
+        <motion.button
+          className="whatsapp-fab"
+          aria-label="Contactar"
+          onClick={() => setFabOpen(!fabOpen)}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, type: 'spring', stiffness: 260, damping: 18 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {fabOpen ? (
+            <X size={28} />
+          ) : (
+            <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.914 15.914 0 0 0 16.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.312 22.594c-.39 1.1-1.932 2.014-3.18 2.28-.852.18-1.964.324-5.71-1.228-4.796-1.986-7.882-6.848-8.12-7.166-.23-.318-1.926-2.566-1.926-4.892s1.218-3.47 1.652-3.944c.434-.474.946-.592 1.262-.592.316 0 .632.002.908.016.292.016.682-.11 1.068.814.39.938 1.33 3.264 1.448 3.502.118.238.196.514.04.832-.158.318-.236.514-.474.792-.238.278-.5.622-.714.834-.238.238-.486.496-.21.974.278.474 1.234 2.036 2.65 3.298 1.82 1.622 3.354 2.124 3.828 2.362.474.238.752.198 1.028-.118.278-.318 1.186-1.382 1.504-1.856.316-.474.632-.394 1.068-.236.434.158 2.76 1.302 3.234 1.538.474.238.79.356.908.554.118.198.118 1.148-.272 2.252z"/>
+            </svg>
+          )}
+        </motion.button>
+        {fabOpen && (
+          <motion.div
+            className="fab-menu"
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            <a href="https://wa.me/34697935323" target="_blank" rel="noopener noreferrer" className="fab-menu-item fab-whatsapp" onClick={() => setFabOpen(false)}>
+              <svg viewBox="0 0 32 32" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.914 15.914 0 0 0 16.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.312 22.594c-.39 1.1-1.932 2.014-3.18 2.28-.852.18-1.964.324-5.71-1.228-4.796-1.986-7.882-6.848-8.12-7.166-.23-.318-1.926-2.566-1.926-4.892s1.218-3.47 1.652-3.944c.434-.474.946-.592 1.262-.592.316 0 .632.002.908.016.292.016.682-.11 1.068.814.39.938 1.33 3.264 1.448 3.502.118.238.196.514.04.832-.158.318-.236.514-.474.792-.238.278-.5.622-.714.834-.238.238-.486.496-.21.974.278.474 1.234 2.036 2.65 3.298 1.82 1.622 3.354 2.124 3.828 2.362.474.238.752.198 1.028-.118.278-.318 1.186-1.382 1.504-1.856.316-.474.632-.394 1.068-.236.434.158 2.76 1.302 3.234 1.538.474.238.79.356.908.554.118.198.118 1.148-.272 2.252z"/>
+              </svg>
+              Enviar WhatsApp
+            </a>
+            <a href="tel:+34697935323" className="fab-menu-item fab-call" onClick={() => setFabOpen(false)}>
+              <Phone size={20} />
+              Llamar
+            </a>
+          </motion.div>
+        )}
+      </div>
 
       {!cookieConsent && (
         <motion.div
@@ -742,8 +765,11 @@ function App() {
               <div className="footer-social">
                 <a href="https://www.facebook.com/bernaldentalclinic/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={18} /></a>
                 <a href="https://www.instagram.com/bernal_dental_clinic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={18} /></a>
-                <a href="https://www.google.com/search?q=bernaldentalclinic" target="_blank" rel="noopener noreferrer" aria-label="Google" className="google-icon">
+                <a href="https://g.page/r/Cff9mM73ArjPEBM/review" target="_blank" rel="noopener noreferrer" aria-label="Google" className="google-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@bernal.dental.clinic.bcn" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.7a8.18 8.18 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.13z"/></svg>
                 </a>
               </div>
             </div>
@@ -754,7 +780,6 @@ function App() {
                 <li><a href="#filosofia">Filosofía</a></li>
                 <li><a href="#servicios">Especialidades</a></li>
                 <li><Link to="/condiciones-implantes">Garantía Prótesis</Link></li>
-                <li><a href="https://bernaldentalclinic.com/blog/" target="_blank" rel="noopener noreferrer">Blog</a></li>
               </ul>
             </div>
             <div className="footer-column">
@@ -769,18 +794,18 @@ function App() {
             </div>
             <div className="footer-column">
               <h4>Contacto</h4>
-              <div className="footer-contact-item">
+              <a href="https://www.google.com/maps/search/Passatge+de+Montserrat+de+Andrés+11+08014+Barcelona" target="_blank" rel="noopener noreferrer" className="footer-contact-item">
                 <MapPin size={18} />
                 <span>Passatge de Montserrat de Andrés 11, Local 2, 08014 Barcelona (Sants)</span>
-              </div>
-              <div className="footer-contact-item">
+              </a>
+              <a href="tel:+34697935323" className="footer-contact-item">
                 <Phone size={18} />
-                <span>625 766 371</span>
-              </div>
-              <div className="footer-contact-item">
+                <span>697 935 323</span>
+              </a>
+              <a href="mailto:info@bernaldentalclinic.com" className="footer-contact-item">
                 <Mail size={18} />
                 <span>info@bernaldentalclinic.com</span>
-              </div>
+              </a>
               <div className="footer-contact-item">
                 <Clock size={18} />
                 <span>Lun-Jue: 10:00-20:00<br />Vie: 10:00-14:00</span>
@@ -788,16 +813,249 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>© 2024 Bernal Dental Clinic. Todos los derechos reservados.</p>
+            <p>© 2026 Bernal Dental Clinic. Todos los derechos reservados.</p>
             <div className="footer-legal">
-              <a href="#">Aviso Legal</a>
-              <a href="#">Política de Privacidad</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setLegalOpen(true) }}>Aviso Legal</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setPrivacyOpen(true) }}>Política de Privacidad</a>
               <a href="#" onClick={(e) => { e.preventDefault(); setCookiePolicyOpen(true) }}>Política de Cookies</a>
             </div>
             <p className="footer-credits">Desarrollado por <a href="https://enigmasac.com" target="_blank" rel="noopener noreferrer">Enigma Developers</a></p>
           </div>
         </div>
       </footer>
+
+      {legalOpen && (
+        <div className="cookie-policy-overlay" onClick={() => setLegalOpen(false)}>
+          <motion.div
+            className="cookie-policy-modal"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="cookie-policy-header">
+              <h2>Aviso Legal</h2>
+              <button className="cookie-policy-close" onClick={() => setLegalOpen(false)}>
+                <X size={24} />
+              </button>
+            </div>
+            <div className="cookie-policy-body">
+              <p className="cookie-policy-updated">Última actualización: marzo 2026</p>
+
+              <h3>1. Datos identificativos del titular</h3>
+              <p>
+                En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la
+                Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa al usuario de
+                los siguientes datos del titular del sitio web:
+              </p>
+              <ul>
+                <li><strong>Denominación social:</strong> Bernal Dental Clinic, S.L.</li>
+                <li><strong>CIF:</strong> B67156695</li>
+                <li><strong>Domicilio social:</strong> Passatge de Montserrat de Andrés 11, Local 2, 08014 Barcelona</li>
+                <li><strong>Teléfono:</strong> 697 935 323</li>
+                <li><strong>Email:</strong> info@bernaldentalclinic.com</li>
+                <li><strong>Sitio web:</strong> www.bernaldentalclinic.com</li>
+                <li><strong>Actividad:</strong> Servicios de odontología y salud bucodental</li>
+                <li><strong>Registro Sanitario:</strong> Centro sanitario registrado conforme a la normativa autonómica de Cataluña</li>
+              </ul>
+
+              <h3>2. Objeto y ámbito de aplicación</h3>
+              <p>
+                El presente aviso legal regula el acceso y uso del sitio web www.bernaldentalclinic.com
+                (en adelante, el «Sitio Web»). El acceso al Sitio Web atribuye la condición de usuario e
+                implica la aceptación plena y sin reservas de todas las disposiciones incluidas en este aviso
+                legal, así como de las condiciones particulares que, en su caso, complementen, modifiquen o
+                sustituyan el presente aviso legal.
+              </p>
+
+              <h3>3. Propiedad intelectual e industrial</h3>
+              <p>
+                Todos los contenidos del Sitio Web, incluyendo a título enunciativo pero no limitativo:
+                textos, fotografías, gráficos, imágenes, logotipos, iconos, tecnología, software, enlaces y
+                demás contenidos audiovisuales o sonoros, así como su diseño gráfico y códigos fuente, son
+                propiedad intelectual de Bernal Dental Clinic, S.L. o de terceros que han autorizado su uso,
+                sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación reconocidos
+                por la normativa vigente en materia de propiedad intelectual sobre los mismos, salvo aquellos
+                que resulten estrictamente necesarios para el uso del Sitio Web.
+              </p>
+              <p>
+                Las marcas, nombres comerciales o signos distintivos publicados en el Sitio Web son propiedad
+                de Bernal Dental Clinic, S.L. o de terceros, sin que el acceso al Sitio Web pueda considerarse
+                como una concesión de derecho alguno sobre dichas marcas, nombres comerciales o signos distintivos.
+              </p>
+
+              <h3>4. Condiciones de uso</h3>
+              <p>El usuario se compromete a utilizar el Sitio Web de conformidad con la ley, el presente aviso legal, las buenas costumbres y el orden público. El usuario se obliga a no:</p>
+              <ul>
+                <li>Utilizar el Sitio Web con fines ilícitos, contrarios a lo establecido en el presente aviso legal, lesivos de los derechos e intereses de terceros, o que puedan dañar, inutilizar, sobrecargar o deteriorar el Sitio Web.</li>
+                <li>Reproducir, copiar, distribuir, transformar o modificar los contenidos del Sitio Web sin la autorización previa y por escrito del titular.</li>
+                <li>Suprimir, eludir o manipular los derechos de propiedad intelectual e industrial y demás datos identificativos de los derechos del titular o de terceros incorporados a los contenidos.</li>
+              </ul>
+
+              <h3>5. Exclusión de responsabilidad</h3>
+              <p>
+                Bernal Dental Clinic, S.L. no se hace responsable de los daños y perjuicios de cualquier
+                naturaleza que pudieran derivarse del uso del Sitio Web, incluyendo a título enunciativo:
+                errores u omisiones en los contenidos, falta de disponibilidad del Sitio Web, o transmisión
+                de virus o programas maliciosos en los contenidos, a pesar de haber adoptado todas las medidas
+                tecnológicas necesarias para evitarlo.
+              </p>
+              <p>
+                El Sitio Web puede contener enlaces a sitios web de terceros. Bernal Dental Clinic, S.L. no
+                asume responsabilidad alguna por el contenido, informaciones o servicios que pudieran aparecer
+                en dichos sitios, que tendrán exclusivamente carácter informativo y que en ningún caso implican
+                relación alguna entre Bernal Dental Clinic, S.L. y las personas o entidades titulares de tales
+                contenidos o titulares de los sitios donde se encuentren.
+              </p>
+
+              <h3>6. Protección de datos personales</h3>
+              <p>
+                El tratamiento de datos personales se rige por nuestra{' '}
+                <a href="#" onClick={(e) => { e.preventDefault(); setLegalOpen(false); setPrivacyOpen(true) }}>Política de Privacidad</a>,
+                que forma parte integrante del presente aviso legal.
+              </p>
+
+              <h3>7. Legislación aplicable y jurisdicción</h3>
+              <p>
+                El presente aviso legal se rige en todos y cada uno de sus extremos por la legislación española.
+                Para la resolución de cualquier controversia que pudiera derivarse del acceso o uso del Sitio Web,
+                Bernal Dental Clinic, S.L. y el usuario acuerdan someterse a los Juzgados y Tribunales de Barcelona,
+                con renuncia expresa a cualquier otro fuero que pudiera corresponderles, salvo que la normativa
+                aplicable disponga imperativamente otro fuero.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {privacyOpen && (
+        <div className="cookie-policy-overlay" onClick={() => setPrivacyOpen(false)}>
+          <motion.div
+            className="cookie-policy-modal"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="cookie-policy-header">
+              <h2>Política de Privacidad</h2>
+              <button className="cookie-policy-close" onClick={() => setPrivacyOpen(false)}>
+                <X size={24} />
+              </button>
+            </div>
+            <div className="cookie-policy-body">
+              <p className="cookie-policy-updated">Última actualización: marzo 2026</p>
+
+              <h3>1. Responsable del tratamiento</h3>
+              <ul>
+                <li><strong>Denominación social:</strong> Bernal Dental Clinic, S.L.</li>
+                <li><strong>CIF:</strong> B67156695</li>
+                <li><strong>Domicilio:</strong> Passatge de Montserrat de Andrés 11, Local 2, 08014 Barcelona</li>
+                <li><strong>Teléfono:</strong> 697 935 323</li>
+                <li><strong>Email:</strong> info@bernaldentalclinic.com</li>
+              </ul>
+
+              <h3>2. Datos personales que tratamos</h3>
+              <p>
+                En Bernal Dental Clinic, S.L. tratamos los datos personales que nos proporcionas
+                voluntariamente a través de los siguientes canales:
+              </p>
+              <ul>
+                <li>Formularios de contacto o solicitud de cita del Sitio Web.</li>
+                <li>Comunicaciones por correo electrónico, teléfono o WhatsApp.</li>
+                <li>Datos recabados durante la prestación de servicios sanitarios (historia clínica, datos de salud).</li>
+              </ul>
+              <p>Las categorías de datos que podemos tratar incluyen:</p>
+              <ul>
+                <li><strong>Datos identificativos:</strong> nombre, apellidos, DNI/NIE, fecha de nacimiento.</li>
+                <li><strong>Datos de contacto:</strong> dirección, teléfono, email.</li>
+                <li><strong>Datos de salud:</strong> historial clínico dental, radiografías, diagnósticos, tratamientos realizados (categoría especial de datos según el art. 9 del RGPD).</li>
+                <li><strong>Datos de facturación:</strong> datos bancarios, datos fiscales.</li>
+              </ul>
+
+              <h3>3. Finalidades del tratamiento</h3>
+              <p>Sus datos personales serán tratados con las siguientes finalidades:</p>
+              <ul>
+                <li><strong>Gestión de citas y atención sanitaria:</strong> gestionar las solicitudes de cita, prestar los servicios odontológicos solicitados y realizar el seguimiento clínico del paciente.</li>
+                <li><strong>Gestión administrativa y facturación:</strong> cumplir con las obligaciones legales de facturación, contabilidad y fiscalidad.</li>
+                <li><strong>Comunicaciones:</strong> responder a consultas realizadas a través del Sitio Web, teléfono, WhatsApp o correo electrónico.</li>
+                <li><strong>Cumplimiento de obligaciones legales:</strong> conservación de la historia clínica conforme a la Ley 41/2002, de 14 de noviembre, básica reguladora de la autonomía del paciente.</li>
+              </ul>
+
+              <h3>4. Base legal del tratamiento</h3>
+              <p>El tratamiento de datos se fundamenta en las siguientes bases legales (art. 6 y 9 del RGPD):</p>
+              <ul>
+                <li><strong>Ejecución de un contrato:</strong> la prestación de servicios odontológicos solicitados por el paciente (art. 6.1.b RGPD).</li>
+                <li><strong>Obligación legal:</strong> cumplimiento de la normativa sanitaria, fiscal y contable aplicable (art. 6.1.c RGPD).</li>
+                <li><strong>Interés vital y asistencia sanitaria:</strong> tratamiento de datos de salud necesarios para la prestación de asistencia sanitaria (art. 9.2.c y 9.2.h RGPD).</li>
+                <li><strong>Consentimiento:</strong> para el envío de comunicaciones comerciales, si las hubiera (art. 6.1.a RGPD). El consentimiento puede ser retirado en cualquier momento.</li>
+              </ul>
+
+              <h3>5. Conservación de los datos</h3>
+              <p>Los datos personales se conservarán durante los siguientes plazos:</p>
+              <ul>
+                <li><strong>Historia clínica:</strong> mínimo 5 años desde el alta de cada proceso asistencial, conforme al artículo 17.1 de la Ley 41/2002 y la normativa autonómica de Cataluña.</li>
+                <li><strong>Datos de facturación:</strong> 4 años (prescripción de obligaciones fiscales según la Ley General Tributaria).</li>
+                <li><strong>Datos de contacto:</strong> mientras se mantenga la relación con el paciente y, una vez finalizada, durante los plazos de prescripción legal aplicables.</li>
+              </ul>
+
+              <h3>6. Destinatarios de los datos</h3>
+              <p>
+                Sus datos personales no serán cedidos a terceros salvo obligación legal. Podrán acceder a
+                sus datos:
+              </p>
+              <ul>
+                <li>Profesionales sanitarios vinculados a la clínica para la prestación del servicio.</li>
+                <li>Administraciones públicas competentes cuando así lo exija la normativa vigente (Agencia Tributaria, autoridades sanitarias).</li>
+                <li>Mutuas dentales y aseguradoras, en caso de que el paciente esté cubierto por una póliza y autorice expresamente la comunicación.</li>
+                <li>Encargados del tratamiento que prestan servicios a la clínica (software de gestión clínica, alojamiento web), con los que se han suscrito los correspondientes contratos de encargado del tratamiento conforme al artículo 28 del RGPD.</li>
+              </ul>
+              <p>No se realizan transferencias internacionales de datos fuera del Espacio Económico Europeo.</p>
+
+              <h3>7. Derechos de los interesados</h3>
+              <p>
+                De conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD),
+                puede ejercer los siguientes derechos:
+              </p>
+              <ul>
+                <li><strong>Acceso:</strong> conocer si estamos tratando sus datos y obtener una copia de los mismos.</li>
+                <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+                <li><strong>Supresión:</strong> solicitar la eliminación de sus datos cuando ya no sean necesarios para la finalidad para la que fueron recogidos.</li>
+                <li><strong>Limitación:</strong> solicitar la limitación del tratamiento de sus datos en determinadas circunstancias.</li>
+                <li><strong>Portabilidad:</strong> recibir sus datos en un formato estructurado, de uso común y lectura mecánica.</li>
+                <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos en determinadas circunstancias.</li>
+              </ul>
+              <p>
+                Para ejercer estos derechos, puede dirigirse a{' '}
+                <a href="mailto:info@bernaldentalclinic.com">info@bernaldentalclinic.com</a>{' '}
+                indicando su nombre, apellidos, DNI/NIE y el derecho que desea ejercer. Se le podrá solicitar
+                copia de su documento de identidad para verificar su identidad.
+              </p>
+              <p>
+                Asimismo, tiene derecho a presentar una reclamación ante la Agencia Española de Protección
+                de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>)
+                si considera que el tratamiento de sus datos no se ajusta a la normativa vigente.
+              </p>
+
+              <h3>8. Medidas de seguridad</h3>
+              <p>
+                Bernal Dental Clinic, S.L. ha adoptado las medidas técnicas y organizativas necesarias para
+                garantizar la seguridad e integridad de los datos personales, así como para evitar su alteración,
+                pérdida, tratamiento o acceso no autorizado, conforme al estado de la tecnología, la naturaleza
+                de los datos y los riesgos a los que están expuestos.
+              </p>
+
+              <h3>9. Modificaciones de la política de privacidad</h3>
+              <p>
+                Bernal Dental Clinic, S.L. se reserva el derecho a modificar la presente política de privacidad
+                para adaptarla a novedades legislativas o jurisprudenciales, así como a prácticas de la industria.
+                En dichos supuestos, se anunciará en esta página los cambios introducidos con razonable antelación
+                a su puesta en práctica.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      )}
 
       {cookiePolicyOpen && (
         <div className="cookie-policy-overlay" onClick={() => setCookiePolicyOpen(false)}>
@@ -831,7 +1089,7 @@ function App() {
                 <strong>CIF:</strong> B67156695<br />
                 <strong>Domicilio:</strong> Passatge de Montserrat de Andrés 11, Local 2, 08014 Barcelona<br />
                 <strong>Email:</strong> info@bernaldentalclinic.com<br />
-                <strong>Teléfono:</strong> 625 766 371
+                <strong>Teléfono:</strong> 697 935 323
               </p>
 
               <h3>3. Tipos de cookies que utilizamos</h3>
