@@ -199,7 +199,7 @@ function App() {
             </motion.div>
             <motion.div className="hero-image" variants={fadeInUp}>
               <img
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=700&fit=crop"
+                src="/hero-dentista.jpg"
                 alt="Dentista profesional"
                 className="hero-image-main"
               />
@@ -274,7 +274,7 @@ function App() {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=500&h=600&fit=crop"
+                src="/about-clinica.jpg"
                 alt="Clínica dental moderna"
                 className="about-image-main"
               />
@@ -406,7 +406,7 @@ function App() {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&h=800&fit=crop"
+                src="/filosofia-clinica.jpg"
                 alt="Filosofía de la clínica"
               />
             </motion.div>
@@ -436,7 +436,7 @@ function App() {
           >
             <div className="doctor-image" style={{ position: 'relative' }}>
               <img
-                src="/yeimi.png"
+                src="/yeimi.jpg"
                 alt="Dra. Yeimi Bernal"
                 style={{
                   width: '100%',
