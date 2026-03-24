@@ -279,7 +279,7 @@ function App() {
                 className="about-image-main"
               />
               <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=250&h=200&fit=crop"
+                src="/recepcion-clinica.jpg"
                 alt="Tratamiento dental"
                 className="about-image-secondary"
               />
@@ -586,7 +586,7 @@ function App() {
           <div className="appointment-content">
             <div className="appointment-image">
               <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&h=800&fit=crop"
+                src="/recepcion-clinica.jpg"
                 alt="Reserva tu cita"
               />
               <div className="appointment-overlay">
