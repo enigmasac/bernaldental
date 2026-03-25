@@ -500,6 +500,43 @@ function App() {
               </a>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ marginTop: '4rem' }}
+          >
+            <h3 style={{ fontSize: '1.5rem', textAlign: 'center', marginBottom: '2.5rem', color: 'var(--color-primary)' }}>
+              Nuestro Equipo de Especialistas
+            </h3>
+            <div className="team-grid">
+              {[
+                { img: '/equipo-samir.jpg', name: 'Dr. Samir Aboul', role: 'Cirujano Oral y Maxilofacial' },
+                { img: '/equipo-sofia.jpg', name: 'Dra. Sofía', role: 'Endodoncista y Odontóloga General' },
+                { img: '/equipo-jana.jpg', name: 'Dra. Jana', role: 'Odontóloga General y Prostodoncia' },
+                { img: '/equipo-nicolas.jpg', name: 'Dr. Nicolás', role: 'Cirujano Implantólogo' },
+                { img: '/equipo-mafer.jpg', name: 'Dra. María Fernanda', role: 'Odontóloga y Atención al Paciente' },
+                { img: '/equipo-ailyn.jpg', name: 'Ailyn', role: 'Higienista' },
+                { img: '/equipo-ana.jpg', name: 'Ana', role: 'Higienista' },
+                { img: '/equipo-paty.jpg', name: 'Patri', role: 'Recepcionista' },
+              ].map((member, i) => (
+                <motion.div
+                  key={member.name}
+                  className="team-member"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                >
+                  <img src={member.img} alt={member.name} className="team-member-img" />
+                  <h4 className="team-member-name">{member.name}</h4>
+                  <p className="team-member-role">{member.role}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

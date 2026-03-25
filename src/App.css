@@ -617,8 +617,38 @@ a.header-top-item:hover {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  transition: var(--transition);
+}
+
+.team-member:hover .team-member-img {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.team-member-name {
+  font-size: 1.05rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+.team-member-role {
+  font-size: 0.85rem;
+  color: var(--color-green);
+  font-weight: 500;
 }
 
 .team-card {
@@ -2014,9 +2044,12 @@ a.footer-contact-item:hover {
 
   .quick-services-grid,
   .services-grid,
-  .team-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .mutuas-grid {
